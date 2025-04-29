@@ -2,11 +2,12 @@ import axios from 'axios';
 
 // Create an axios instance
 const api = axios.create({
-  baseURL: 'http://localhost:5500/api', // Your backend URL
+  baseURL: import.meta.env.VITE_API_URL || 'https://parking-management-system-chi.vercel.app/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true, // 🔥 this is critical if backend expects cookies!
 });
 
 // Add request interceptor to include auth token

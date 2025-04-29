@@ -2,12 +2,14 @@ import axios from 'axios';
 
 // Create an axios instance
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5500/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://parking-management-system-chi.vercel.app/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true, // 🔥 this is critical if backend expects cookies!
 });
+
 
 // Add request interceptor to include auth token
 api.interceptors.request.use(
@@ -126,7 +128,7 @@ const deleteGuard = async (guardId: string) => {
     console.log('Guard deleted successfully:', response.data); // Log successful deletion
     return response;
   } catch (error) {
-    console.error('Error deleting guard:', error); // Log error during deletion
+    console.error('Error deleting guard:',error); // Log error during deletion
     if (error.response) {
       alert('Error: ' + error.response.data.message || 'Failed to delete guard');
     } else if (error.request) {
