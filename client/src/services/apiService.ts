@@ -28,7 +28,7 @@ interface DashboardStats {
 
 // Create an axios instance
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://sri-sangakumaran-parking.onrender.com/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://parkingmanagementsystem-1.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
