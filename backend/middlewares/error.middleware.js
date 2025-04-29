@@ -1,9 +1,15 @@
 const errorMiddleware = (err, req, res, next) => {
     try {
         let error = { ...err };
-
         error.message = err.message;
-        console.error(err);
+        
+        // Log the full error for debugging
+        console.error('Error details:', {
+            name: err.name,
+            message: err.message,
+            stack: err.stack,
+            code: err.code
+        });
 
         // Handle CastError (invalid ObjectId)
         if (err.name === 'CastError') {
@@ -15,7 +21,7 @@ const errorMiddleware = (err, req, res, next) => {
         // Handle Duplicate Key Error (11000)
         if (err.code === 11000) {
             const message = 'Duplicate field value entered';
-            error = new Error(message);  // Corrected this line
+            error = new Error(message);
             error.statusCode = 400;
         }
 
@@ -26,13 +32,21 @@ const errorMiddleware = (err, req, res, next) => {
             error.statusCode = 400;
         }
 
-        // Return error response
+        // Return error response with more details in development
         res.status(error.statusCode || 500).json({
             success: false,
             error: error.message || 'Server Error',
+            ...(process.env.NODE_ENV === 'development' && {
+                stack: err.stack,
+                details: err
+            })
         });
     } catch (error) {
-        next(error);
+        console.error('Error in error middleware:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Internal Server Error'
+        });
     }
 };
 
