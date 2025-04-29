@@ -39,9 +39,58 @@ app.use('/api/stats', statsRoutes);
 
 // Home route
 app.get('/', (req, res) => {
-    res.send('Welcome to the Parking Management System Backend');
-});
-
+    res.send(`
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Parking Management System</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+          body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: #fff;
+          }
+          .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+          }
+          h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+          }
+          p {
+            font-size: 1.2rem;
+            margin-top: 0;
+          }
+          .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="icon">🚗</div>
+          <h1>Parking Management System</h1>
+          <p>Welcome! The backend is running successfully.</p>
+        </div>
+      </body>
+      </html>
+    `);
+  });
+  
 // Error handler middleware
 app.use(errorMiddleware);
 
