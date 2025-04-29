@@ -17,28 +17,25 @@
   <section style="max-width: 900px;margin: 2rem auto;background: #fff;padding: 2rem;border-radius: 10px;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
     <h2 style="text-align: center;font-size: 2.0rem;margin-bottom: 0.5rem;">✨ Features</h2>
 
-    <h3 style="text-align: center;font-size: 1.5rem;margin-bottom: 1.0rem;">🔧 Backend (Node.js + Express + MongoDB)</h3>
-    <ul style="list-style: none;padding-left: 0;" class="icon-list">
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🔐 JWT-based authentication</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">👥 Role-based access (Admin & Guard)</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🚙 Vehicle entry & exit logs</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">📁 RESTful API endpoints</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🧩 Modular route/controller structure</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🧠 MongoDB integration via Mongoose</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">📤 PDF/CSV export capability (planned)</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🌐 WebSocket support for real-time updates</li>
-    </ul>
+### 🔧 Backend (Node.js + Express + MongoDB)
+- 🔐 JWT-based authentication
+- 👥 Role-based access (Admin & Guard)
+- 🚙 Vehicle entry & exit logs
+- 📁 RESTful API endpoints
+- 🧩 Modular route/controller structure
+- 🧠 MongoDB integration via Mongoose
+- 📤 PDF/CSV export capability (planned)
+- 🌐 WebSocket support for real-time updates
 
-    <h3 style="text-align: center;font-size: 1.5rem;margin-bottom: 1.0rem;">💻 Frontend (React + TypeScript)</h3>
-    <ul style="list-style: none;padding-left: 0;" class="icon-list">
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">📋 Dashboard with vehicle logs</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🔍 Filter by type, status, guard, shift</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🔎 Keyword search</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">📁 Export logs to CSV</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🚘 Icons based on vehicle type</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🔐 Role-based UI rendering</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">🌙 Dark mode (planned)</li>
-      <li style="margin-bottom: 0.5rem;font-size: 1.05rem;">📈 Charts for analytics (planned)</li>
+### 💻 Frontend (React + TypeScript)
+- 📋 Dashboard with vehicle logs
+- 🔍 Filter by type, status, guard, shift
+- 🔎 Keyword search
+- 📁 Export logs to CSV
+- 🚘 Icons based on vehicle type
+- 🔐 Role-based UI rendering
+- 🌙 Dark mode (planned)
+- 📈 Charts for analytics (planned)
     </ul>
   </section>
 
@@ -64,11 +61,6 @@
     </table>
   </section>
 
-  <footer style="margin-top: 3rem;">
     <h1 sstyle="text-align: center;font-size: 2.5rem;margin-bottom: 1rem;">👨‍💻 Developed by</h1>
     <h2 style="text-align: center;font-size: 2.0rem;margin-bottom: 0.5rem;">NexFlow Tech</h2>
     <h3 style="text-align: center;font-size: 1.5rem;margin-bottom: 1.0rem;">Built with ❤️ by Team NexFlow</h3>
-  </footer>
-
-</body>
-</html>
