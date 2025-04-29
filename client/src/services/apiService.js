@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-// Create an axios instance
+// Create an axios instance with increased timeout duration
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'https://parking-management-system-chi.vercel.app/api',
-  timeout: 10000,
+  timeout: 20000, // Increased timeout to 20 seconds
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true, // 🔥 this is critical if backend expects cookies!
+  withCredentials: true, // This is critical if backend expects cookies!
 });
 
 // Add request interceptor to include auth token
