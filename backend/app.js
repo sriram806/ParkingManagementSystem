@@ -17,7 +17,7 @@ const app = express();
 app.use(cors({
   origin: (origin, callback) => {
     const allowedOrigins = [
-      'https://parking-management-system-frontend.vercel.app',
+      'https://sri-sangakumaran-parking.onrender.com',
       'http://localhost:5173'
     ];
     if (!origin || allowedOrigins.includes(origin)) {
