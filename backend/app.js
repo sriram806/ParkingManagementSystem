@@ -19,7 +19,9 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.NODE_ENV === 'production' 
+        ? ['https://your-frontend-domain.vercel.app', 'http://localhost:5173']
+        : 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
@@ -34,14 +36,14 @@ app.use('/api/stats', statsRoutes);
 
 // Home route
 app.get('/', (req, res) => {
-    res.send('Welcome to Subscription tracker');
+    res.send('Welcome to the Parking Management System Backend');
 });
 
 // Error handler middleware
 app.use(errorMiddleware);
 
 // Start server
-const port = PORT || 3000;  // Default to 3000 if PORT is not set
+const port = PORT;
 const server = app.listen(port, async () => {
     console.log(`✅ Server live on http://localhost:${port}`);
     
