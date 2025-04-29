@@ -59,39 +59,46 @@ export const register = async (req, res, next) => {
 
 // Login user
 export const login = async (req, res) => {
-  try {
+    try {
       const { email, password } = req.body;
-
+  
+      if (!email || !password) {
+        return res.status(400).json({ message: 'Email and password are required' });
+      }
+  
       // Check if email exists
       const user = await User.findOne({ email });
       if (!user) {
-          return res.status(401).json({ message: 'Invalid credentials' });
+        return res.status(401).json({ message: 'Invalid credentials' });
       }
-
+  
       // Compare the password
       const isMatch = await user.comparePassword(password);
       if (!isMatch) {
-          return res.status(401).json({ message: 'Invalid credentials' });
+        return res.status(401).json({ message: 'Invalid credentials' });
       }
-
+  
       // Generate JWT token
       const token = jwt.sign(
-          { 
-              id: user._id,
-              name: user.name,
-              role: user.role,
-              shift: user.shift
-          },
-          JWT_SECRET,
-          { expiresIn: JWT_EXPIRES_IN }
+        {
+          id: user._id,
+          name: user.name,
+          role: user.role,
+          shift: user.shift,
+        },
+        JWT_SECRET,
+        { expiresIn: JWT_EXPIRES_IN }
       );
-
+  
+      // Log successful login attempt
+      console.log(`Login successful for email: ${email}`);
+  
       res.json({ token });
-  } catch (error) {
-      console.error(error);
+    } catch (error) {
+      console.error('Login error:', error);
       res.status(500).json({ message: 'Login failed', error: error.message });
-  }
-};
+    }
+  };
 
 // Logout user (optional, frontend handles client-side token removal)
 export const logout = async (req, res, next) => {
