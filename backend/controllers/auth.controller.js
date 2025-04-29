@@ -95,8 +95,25 @@ export const login = async (req, res) => {
   
       res.json({ token });
     } catch (error) {
-      console.error('Login error:', error);
-      res.status(500).json({ message: 'Login failed', error: error.message });
+      console.error('Login error details:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name,
+        code: error.code
+      });
+      
+      // Check for specific error types
+      if (error.name === 'MongoError') {
+        return res.status(500).json({ 
+          message: 'Database error occurred',
+          error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
+        });
+      }
+      
+      res.status(500).json({ 
+        message: 'Login failed', 
+        error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
+      });
     }
   };
 
