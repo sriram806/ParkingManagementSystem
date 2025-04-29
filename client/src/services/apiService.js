@@ -3,7 +3,6 @@ import axios from 'axios';
 // Create an axios instance with increased timeout duration
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'https://parking-management-system-chi.vercel.app/api',
-  timeout: 20000, // Increased timeout to 20 seconds
   headers: {
     'Content-Type': 'application/json',
   },

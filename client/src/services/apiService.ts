@@ -29,11 +29,10 @@ interface DashboardStats {
 // Create an axios instance
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'https://parking-management-system-chi.vercel.app/api',
-  timeout: 20000,
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true, // 🔥 this is critical if backend expects cookies!
+  withCredentials: true,
 });
 
 // Add request interceptor to include auth token
