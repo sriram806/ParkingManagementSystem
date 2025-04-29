@@ -20,7 +20,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors({
     origin: process.env.NODE_ENV === 'production' 
-        ? ['https://parking-management-system-frontend.vercel.app', 'http://localhost:5173']
+        ? ['https://parking-management-system-frontend.vercel.app',
+           'https://parking-management-system-frontend.vercel.app/login',
+           'http://localhost:5173']
         : 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
