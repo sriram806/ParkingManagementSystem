@@ -27,6 +27,9 @@ app.use(cors({
     credentials: true
 }));
 
+// Serve static files from the public directory
+app.use(express.static('public'));
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/vehicles', vehicleRoutes);
