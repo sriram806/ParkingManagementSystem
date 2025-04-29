@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an axios instance with increased timeout duration
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://sri-sangakumaran-parking.onrender.com/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://parkingmanagementsystem-1.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
